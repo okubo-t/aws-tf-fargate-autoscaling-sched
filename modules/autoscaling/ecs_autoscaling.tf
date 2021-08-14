@@ -4,6 +4,11 @@ resource "aws_appautoscaling_target" "ecs" {
   service_namespace  = "ecs"
   min_capacity       = 1
   max_capacity       = 1
+
+  lifecycle {
+    ignore_changes = [min_capacity, max_capacity]
+  }
+
 }
 
 resource "aws_appautoscaling_scheduled_action" "scale_out" {
