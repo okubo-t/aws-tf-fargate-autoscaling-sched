@@ -22,7 +22,6 @@ resource "aws_ecs_task_definition" "this" {
   cpu    = "256"
   memory = "512"
 
-  #task_role_arn            = local.ecs-01.task-01["task_role_arn"]
   execution_role_arn       = aws_iam_role.this.arn
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
